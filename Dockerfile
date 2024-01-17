@@ -1,5 +1,5 @@
 # This Dockerfile is only for GitHub Actions
-FROM python:3.10-bullseye
+FROM docker.artifactory.sherwin.com/sherwin-williams-co/iodp/fylki2.0/python/python:3.11
 
 RUN apt-get update && \
     apt-get install --yes default-jre-headless && \
