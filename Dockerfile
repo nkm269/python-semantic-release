@@ -1,6 +1,14 @@
 # This Dockerfile is only for GitHub Actions
 FROM python:3.10-bullseye
 
+RUN apt-get update && \
+    apt-get install --yes default-jre-headless && \
+    apt-get install --yes ca-certificates && \
+    apt-get upgrade --yes
+
+ADD http://swroot.sherwin.com/swroot.pem /usr/local/share/ca-certificates/swroot.crt
+RUN update-ca-certificates
+
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
